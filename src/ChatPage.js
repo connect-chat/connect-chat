@@ -11,12 +11,21 @@ export default function ChatPage() {
 
 
   return (
-    <div className='username-form'>
+    <div className='chat'>
       {
-        <form>
-          <input placeholder='username'/>
-          <button>Submit</button>
-        </form>
+        <>
+          <form className='user-greeting'>
+            <input placeholder='username'/>
+            <button>Submit</button>
+          </form>
+          <header className='header'>
+            <h3>Hello Username</h3>
+            <form className='message-input'>
+              <input/>
+              <button>Send Message</button>
+            </form>
+          </header>
+        </>
       }
     </div>
   );
