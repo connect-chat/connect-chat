@@ -23,38 +23,3 @@ export async function getUser() {
 
   return response.user;
 }
-
-export async function getMessages() {
-  const response = await client.query({
-    query: gql`
-      query {
-        messages {
-          id
-          text
-          createdAt
-          user {
-            id
-            name
-          }
-        }
-      }
-    `
-  });
-
-  return response.data.messages;
-}
-
-export async function getRooms() {
-  const response = await client.query({
-    query: gql`
-      query {
-        rooms {
-          id
-          name
-        }
-      }
-    `
-  });
-
-  return response.data.rooms;
-}

@@ -11,8 +11,8 @@ import ProfilePage from './ProfilePage';
 import './App.css';
 
 export default function App() {
-
   const { user, setUser } = useDataContext();
+  
   async function handleLogout() {
     await logout();
     setUser(null);
