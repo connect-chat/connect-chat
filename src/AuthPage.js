@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import { useDataContext } from './DataProvider';
 import { signInUser, signupUser } from './services/fetch-utils';
 
-export default function AuthPage({ setCurrentUser }) {
+export default function AuthPage() {
   const [signUpEmail, setSignUpEmail] = useState('');
   const [signUpPassword, setSignUpPassword] = useState('');  
   const [signInEmail, setSignInEmail] = useState('');
   const [signInPassword, setSignInPassword] = useState('');  
+  const { setUser } = useDataContext();
 
   function clearForms() {
     setSignInEmail('');
@@ -18,7 +20,7 @@ export default function AuthPage({ setCurrentUser }) {
     e.preventDefault();
 
     const user = await signupUser(signUpEmail, signUpPassword);
-    setCurrentUser(user);
+    setUser(user);
     clearForms();
   }
 
@@ -26,7 +28,7 @@ export default function AuthPage({ setCurrentUser }) {
     e.preventDefault();
 
     const user = await signInUser(signInEmail, signInPassword);
-    setCurrentUser(user);
+    setUser(user);
     clearForms();
   }
 
