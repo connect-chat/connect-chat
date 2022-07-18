@@ -40,7 +40,7 @@ export default function App() {
 
         <Switch>
           <Route exact path="/">
-            {user ? <Redirect to="/auth" /> : <AuthPage />}
+            {user ? <Redirect to="/chat" /> : <AuthPage />}
           </Route>
           <Route exact path="/chat">
             {!user ? <Redirect to="/" /> : <ChatPage />}
