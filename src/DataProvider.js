@@ -13,7 +13,11 @@ export default function DataProvider({ children }) {
     setUser
   };
 
-  return <DataContext.Provider value={stateAndSetters}>{children}</DataContext.Provider>;
+  return (
+    <DataContext.Provider value={stateAndSetters}>
+      {children}
+    </DataContext.Provider>
+  );
 }
 
 export function useDataContext() {
