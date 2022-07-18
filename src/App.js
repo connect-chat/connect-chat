@@ -1,25 +1,55 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router,
+  Switch, 
+  Route,
+  Link,
+  Redirect } from 'react-router-dom';
+import { logout } from './services/fetch-utils';
+import { useDataContext } from './DataProvider';
+import AuthPage from './AuthPage';
+import ChatPage from './ChatPage';
+import ProfilePage from './ProfilePage';
 import './App.css';
 
-function App() {
+export default function App() {
+  const { user, setUser } = useDataContext();
+  
+  async function handleLogout() {
+    await logout();
+    setUser(null);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Auth</Link>
+            </li>
+            <li>
+              <Link to="/chat">Chat</Link>
+            </li>
+            <li>
+              <Link to="/profile">Profile</Link>
+            </li>
+            <li>
+              <button onClick={handleLogout}>logout</button>
+            </li>
+          </ul>
+        </nav>
+
+        <Switch>
+          <Route exact path="/">
+            {user ? <Redirect to="/auth" /> : <AuthPage />}
+          </Route>
+          <Route exact path="/chat">
+            {!user ? <Redirect to="/" /> : <ChatPage />}
+          </Route>
+          <Route exact path="/profile">
+            {!user ? <Redirect to="/" /> : <ProfilePage />}
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
-
-export default App;
