@@ -1,8 +1,4 @@
-import { BrowserRouter as Router,
-  Switch, 
-  Route,
-  Link,
-  Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
 import { logout } from './services/fetch-utils';
 import { useDataContext } from './DataProvider';
 import AuthPage from './AuthPage';
@@ -12,7 +8,7 @@ import './App.css';
 
 export default function App() {
   const { user, setUser } = useDataContext();
-  
+
   async function handleLogout() {
     await logout();
     setUser(null);
