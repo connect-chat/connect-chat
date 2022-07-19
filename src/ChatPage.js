@@ -12,7 +12,7 @@ export default function ChatPage() {
   async function handleNameSubmit(e) {
     e.preventDefault();
 
-    setUserName(userName);
+    setUserName(userNameInForm);
   }
 
   async function load() {
@@ -46,12 +46,12 @@ export default function ChatPage() {
   return (
     <div className="chat">
       {
-        <>
-          <form className="user-greeting">
-            <input placeholder="username" onChange={(e) => setUserName(e.target.value)} />
+        !userName
+          ? <form className="user-greeting" onSubmit={handleNameSubmit}>
+            <input placeholder="username" value={userNameInForm} onChange={(e) => setUserNameInForm(e.target.value)} />
             <button>Submit</button>
           </form>
-          <header className="header">
+          : <header className="header">
             <h3>Hello {userName}</h3>
             <form onSubmit={handleSubmitMessage} className="message-input">
               <input value={messageInForm} onChange={(e) => setMessageInForm(e.target.value)} />
@@ -63,7 +63,6 @@ export default function ChatPage() {
               </p>
             ))}
           </header>
-        </>
       }
     </div>
   );
