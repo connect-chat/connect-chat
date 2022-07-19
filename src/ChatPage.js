@@ -22,6 +22,10 @@ export default function ChatPage() {
   }
 
   useEffect(() => {
+    load();
+  }, []); // eslint-disable-line
+
+  useEffect(() => {
     client
       .from('chat_messages')
       .on('*', async ({ new: { from, message } }) => {
