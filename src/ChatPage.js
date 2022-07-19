@@ -9,19 +9,18 @@ export default function ChatPage() {
   const [userNameInForm, setUserNameInForm] = useState('');
   const [messageInForm, setMessageInForm] = useState('');
 
-
   return (
-    <div className='chat'>
+    <div className="chat">
       {
         <>
-          <form className='user-greeting'>
-            <input placeholder='username'/>
+          <form className="user-greeting">
+            <input placeholder="username" onChange={(e) => setUserName(e.target.value)} />
             <button>Submit</button>
           </form>
-          <header className='header'>
-            <h3>Hello Username</h3>
-            <form className='message-input'>
-              <input/>
+          <header className="header">
+            <h3>Hello {userName}</h3>
+            <form className="message-input">
+              <input />
               <button>Send Message</button>
             </form>
           </header>
