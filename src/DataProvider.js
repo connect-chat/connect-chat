@@ -17,7 +17,7 @@ export default function DataProvider({ children }) {
   };
 
   useEffect(() => {
-    console.log('Are ypu there?');
+    console.log('Are you there?');
     const loadData = async () => {
       try {
         const data = await getProfile();
