@@ -1,17 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState, 
   useContext, 
   createContext } from 'react';
-import { getUser } from './services/fetch-utils';
+import { getProfile, getUser } from './services/fetch-utils';
 
 const DataContext = createContext();
 
 export default function DataProvider({ children }) {
   const [user, setUser] = useState(getUser());
+  const [userName, setUserName] = useState('');
   const stateAndSetters = {
     user,
-    setUser
+    setUser,
+    userName,
+    setUserName
   };
+
+  useEffect(() => {
+    console.log('Are you there?');
+    const loadData = async () => {
+      try {
+        const data = await getProfile();
+        setUserName(data.user_name);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    loadData();
+  }, []);
 
   return (
     <DataContext.Provider value={stateAndSetters}>

@@ -1,18 +1,20 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { createMessage, getMessages, client } from './services/client';
-import DataProvider from './DataProvider';
+import DataProvider, { useDataContext } from './DataProvider';
+import { createUserName } from './services/fetch-utils';
 
 export default function ChatPage() {
   const [messages, setMessages] = useState([]);
-  const [userName, setUserName] = useState('');
-  const [userNameInForm, setUserNameInForm] = useState('');
+  const { userName, setUserName, user, setUser } = useDataContext();
+  const [userNameInForm, setUserNameInForm] = useState(userName);
   const [messageInForm, setMessageInForm] = useState('');
 
   async function handleNameSubmit(e) {
     e.preventDefault();
-
-    setUserName(userName);
+    setUserName(userNameInForm);
+    await createUserName(userNameInForm);
+    load();
   }
 
   async function load() {
@@ -20,6 +22,10 @@ export default function ChatPage() {
 
     setMessages(data);
   }
+
+  useEffect(() => {
+    load();
+  }, []); // eslint-disable-line
 
   useEffect(() => {
     client
@@ -37,17 +43,19 @@ export default function ChatPage() {
 
     await createMessage(userName, messageInForm);
     setMessageInForm('');
+    load();
   }
+  console.log(user.user_name);
 
   return (
     <div className="chat">
       {
-        <>
-          <form className="user-greeting">
-            <input placeholder="username" onChange={(e) => setUserName(e.target.value)} />
+        !userName
+          ? <form className="user-greeting" onSubmit={handleNameSubmit}>
+            <input placeholder="username" value={userNameInForm} onChange={(e) => setUserNameInForm(e.target.value)} />
             <button>Submit</button>
           </form>
-          <header className="header">
+          : <header className="header">
             <h3>Hello {userName}</h3>
             <form onSubmit={handleSubmitMessage} className="message-input">
               <input value={messageInForm} onChange={(e) => setMessageInForm(e.target.value)} />
@@ -59,7 +67,6 @@ export default function ChatPage() {
               </p>
             ))}
           </header>
-        </>
       }
     </div>
   );
