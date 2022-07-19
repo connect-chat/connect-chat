@@ -13,6 +13,7 @@ export default function ChatPage() {
     e.preventDefault();
 
     setUserName(userNameInForm);
+    load();
   }
 
   async function load() {
@@ -41,6 +42,7 @@ export default function ChatPage() {
 
     await createMessage(userName, messageInForm);
     setMessageInForm('');
+    load();
   }
 
   return (
