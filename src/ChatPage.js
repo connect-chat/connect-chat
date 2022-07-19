@@ -9,6 +9,19 @@ export default function ChatPage() {
   const [userNameInForm, setUserNameInForm] = useState('');
   const [messageInForm, setMessageInForm] = useState('');
 
+  async function handleNameSubmit(e) {
+    e.preventDefault();
+
+    setUserName(userName);
+  }
+
+  async function handleSubmitMessage(e) {
+    e.preventDefault();
+
+    await createMessage(userName, messageInForm);
+    setMessageInForm('');
+  }
+
   return (
     <div className="chat">
       {
@@ -19,8 +32,8 @@ export default function ChatPage() {
           </form>
           <header className="header">
             <h3>Hello {userName}</h3>
-            <form className="message-input">
-              <input />
+            <form onSubmit={handleSubmitMessage} className="message-input">
+              <input value={messageInForm} onChange={(e) => setMessageInForm(e.target.value)} />
               <button>Send Message</button>
             </form>
           </header>
