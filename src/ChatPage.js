@@ -1,18 +1,19 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { createMessage, getMessages, client } from './services/client';
-import DataProvider from './DataProvider';
+import DataProvider, { useDataContext } from './DataProvider';
+import { createUserName } from './services/fetch-utils';
 
 export default function ChatPage() {
   const [messages, setMessages] = useState([]);
-  const [userName, setUserName] = useState('');
-  const [userNameInForm, setUserNameInForm] = useState('');
+  const { userName, setUserName, user, setUser } = useDataContext();
+  const [userNameInForm, setUserNameInForm] = useState(userName);
   const [messageInForm, setMessageInForm] = useState('');
 
   async function handleNameSubmit(e) {
     e.preventDefault();
-
     setUserName(userNameInForm);
+    await createUserName(userNameInForm);
     load();
   }
 
@@ -44,6 +45,7 @@ export default function ChatPage() {
     setMessageInForm('');
     load();
   }
+  console.log(user.user_name);
 
   return (
     <div className="chat">
