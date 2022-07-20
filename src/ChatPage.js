@@ -2,18 +2,21 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { createMessage, getMessages, client } from './services/client';
 import { useDataContext } from './DataProvider';
-import { createUserName } from './services/fetch-utils';
+import { createUserName, createBirthday } from './services/fetch-utils';
 
 export default function ChatPage() {
   const [messages, setMessages] = useState([]);
-  const { userName, setUserName } = useDataContext();
+  const { userName, setUserName, birthday, setBirthday } = useDataContext();
   const [userNameInForm, setUserNameInForm] = useState(userName || '');
   const [messageInForm, setMessageInForm] = useState('');
+  const [birthdayInForm, setBirthdayInForm] = useState('');
 
   async function handleNameSubmit(e) {
     e.preventDefault();
     setUserName(userNameInForm);
+    setBirthday(birthdayInForm);
     await createUserName(userNameInForm);
+    await createBirthday(birthdayInForm);
     load();
   }
 
@@ -48,18 +51,24 @@ export default function ChatPage() {
 
   return (
     <div className="chat">
-      {!userName ? (
+      {!userName && !birthday ? (
         <form className="user-greeting" onSubmit={handleNameSubmit}>
           <input
-            placeholder="username"
+            placeholder="Username"
             value={userNameInForm}
             onChange={(e) => setUserNameInForm(e.target.value)}
           />
+          <input
+            placeholder="Birthday"
+            value={birthdayInForm}
+            onChange={(e) => setBirthdayInForm(e.target.value)}
+          />
           <button>Submit</button>
         </form>
+        
       ) : (
         <header className="header">
-          <h3>Hello {userName}</h3>
+          <h3>Hello {userName}, Your Birthday is {birthday}</h3>
           <form onSubmit={handleSubmitMessage} className="message-input">
             <input value={messageInForm} onChange={(e) => setMessageInForm(e.target.value)} />
             <button>Send Message</button>

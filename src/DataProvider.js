@@ -6,12 +6,15 @@ const DataContext = createContext();
 
 export default function DataProvider({ children }) {
   const [user, setUser] = useState(getUser());
+  const [birthday, setBirthday] = useState('');
   const [userName, setUserName] = useState('');
   const stateAndSetters = {
     user,
     setUser,
     userName,
     setUserName,
+    birthday,
+    setBirthday
   };
 
   useEffect(() => {
