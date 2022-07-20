@@ -29,6 +29,8 @@ export async function createUserName(user_name) {
   return data;
 }
 
+// this function gets called from the provider any time any page loads
+// if theres already a username it will be set in global state
 export async function getProfile() {
   const user = getUser();
   if (user) {

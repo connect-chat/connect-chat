@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { createMessage, getMessages, client } from './services/client';
-import DataProvider, { useDataContext } from './DataProvider';
+import { useDataContext } from './DataProvider';
 import { createUserName } from './services/fetch-utils';
 
 export default function ChatPage() {
   const [messages, setMessages] = useState([]);
-  const { userName, setUserName, user, setUser } = useDataContext();
+  const { userName, setUserName } = useDataContext();
   const [userNameInForm, setUserNameInForm] = useState(userName);
   const [messageInForm, setMessageInForm] = useState('');
 
@@ -45,7 +45,6 @@ export default function ChatPage() {
     setMessageInForm('');
     load();
   }
-  console.log(user.user_name);
 
   return (
     <div className="chat">
@@ -55,6 +54,7 @@ export default function ChatPage() {
             <input placeholder="username" value={userNameInForm} onChange={(e) => setUserNameInForm(e.target.value)} />
             <button>Submit</button>
           </form>
+
           : <header className="header">
             <h3>Hello {userName}</h3>
             <form onSubmit={handleSubmitMessage} className="message-input">

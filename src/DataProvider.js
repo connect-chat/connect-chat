@@ -17,10 +17,11 @@ export default function DataProvider({ children }) {
   };
 
   useEffect(() => {
-    console.log('Are you there?');
     const loadData = async () => {
       try {
+        console.log('loading profile');
         const data = await getProfile();
+        console.log(data);
         setUserName(data.user_name);
       } catch (e) {
         console.error(e);
