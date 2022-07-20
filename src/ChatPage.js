@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { createMessage, getMessages, client } from './services/client';
 import { useDataContext } from './DataProvider';
-import { createUserName, createBirthday } from './services/fetch-utils';
+import { createProfile } from './services/fetch-utils';
 
 export default function ChatPage() {
   const [messages, setMessages] = useState([]);
@@ -15,8 +15,7 @@ export default function ChatPage() {
     e.preventDefault();
     setUserName(userNameInForm);
     setBirthday(birthdayInForm);
-    await createUserName(userNameInForm);
-    await createBirthday(birthdayInForm);
+    await createProfile(userNameInForm, birthdayInForm);
     load();
   }
 
