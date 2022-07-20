@@ -21,10 +21,10 @@ export function getUser() {
 
   return response;
 }
-export async function createProfile(user_name, user_birthday) {
+export async function createProfile(user_name, user_sign) {
   const { data } = await client
     .from('chat_profiles')
-    .insert({ user_name: user_name, user_birthday: user_birthday })
+    .insert({ user_name: user_name, user_sign: user_sign })
     .single();
   return data;
 }
@@ -38,4 +38,10 @@ export async function getProfile() {
     const profile = checkError(profileRsp);
     return profile;
   }
+}
+
+export async function getSign(sign) {
+  const data = await fetch(`/netlify/functions/astro-endpoint?sign=${sign}`);
+  const results = await data.json();
+  return results;
 }

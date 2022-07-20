@@ -6,15 +6,15 @@ const DataContext = createContext();
 
 export default function DataProvider({ children }) {
   const [user, setUser] = useState(getUser());
-  const [birthday, setBirthday] = useState('');
+  const [sign, setSign] = useState('');
   const [userName, setUserName] = useState('');
   const stateAndSetters = {
     user,
     setUser,
     userName,
     setUserName,
-    birthday,
-    setBirthday
+    sign,
+    setSign
   };
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function DataProvider({ children }) {
         const data = await getProfile();
         if (data) {
           setUserName(data.user_name);
-          setBirthday(data.user_birthday);
+          setSign(data.user_sign);
         }
       } catch (e) {
         console.error(e); // eslint-disable-line
