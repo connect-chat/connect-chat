@@ -29,15 +29,6 @@ export async function createProfile(user_name, user_birthday) {
   return data;
 }
 
-// export async function createBirthday(user_birthday) {
-//   const { data } = await client
-//     .from('chat_profiles')
-//     .insert({ user_birthday: user_birthday })
-//     .single();
-//   console.log(data);
-//   return data;
-// }
-
 // this function gets called from the provider any time any page loads
 // if theres already a username it will be set in global state
 export async function getProfile() {
