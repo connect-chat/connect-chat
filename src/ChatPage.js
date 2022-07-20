@@ -54,11 +54,14 @@ export default function ChatPage() {
       {!userName && !birthday ? (
         <form className="user-greeting" onSubmit={handleNameSubmit}>
           <input
+            required
             placeholder="Username"
             value={userNameInForm}
             onChange={(e) => setUserNameInForm(e.target.value)}
           />
           <input
+            required
+            type="date"
             placeholder="Birthday"
             value={birthdayInForm}
             onChange={(e) => setBirthdayInForm(e.target.value)}

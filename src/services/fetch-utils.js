@@ -34,6 +34,7 @@ export async function createBirthday(user_birthday) {
     .from('chat_profiles')
     .insert({ user_birthday: user_birthday })
     .single();
+  console.log(data);
   return data;
 }
 
