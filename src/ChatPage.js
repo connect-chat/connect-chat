@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { createMessage, getMessages, client } from './services/client';
 import { useDataContext } from './DataProvider';
 import { createProfile } from './services/fetch-utils';
-// import { getSign } from './services/fetch-utils';
 
 export default function ChatPage() {
   const [messages, setMessages] = useState([]);
@@ -19,7 +18,7 @@ export default function ChatPage() {
     await createProfile(userNameInForm, signInForm);
     load();
   }
-  
+
   async function load() {
     const data = await getMessages();
 
