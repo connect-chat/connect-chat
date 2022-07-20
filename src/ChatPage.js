@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { createMessage, getMessages, client } from './services/client';
 import { useDataContext } from './DataProvider';
 import { createProfile } from './services/fetch-utils';
-import { getSign } from './services/fetch-utils';
+// import { getSign } from './services/fetch-utils';
 
 export default function ChatPage() {
   const [messages, setMessages] = useState([]);
@@ -19,7 +19,7 @@ export default function ChatPage() {
     await createProfile(userNameInForm, signInForm);
     load();
   }
-
+  
   async function load() {
     const data = await getMessages();
 
@@ -59,22 +59,20 @@ export default function ChatPage() {
             value={userNameInForm}
             onChange={(e) => setUserNameInForm(e.target.value)}
           />
-          <select required placeholder="Select Zodiac Sign">
-            <option>Aries</option>
-            <option>Taurus</option>
-            <option>Gemini</option>
-            <option>Cancer</option>
-            <option>Leo</option>
-            <option>Virgo</option>
-            <option>Libra</option>
-            <option>Scorpio</option>
-            <option>Sagittarius</option>
-            <option>Capricorn</option>
-            <option>Aquarius</option>
-            <option>Pisces</option>
+          <select onChange={(e) => setSignInForm(e.target.value)} required value={signInForm} placeholder="Select Zodiac Sign">
+            <option value='aries'>Aries</option>
+            <option value='taurus'>Taurus</option>
+            <option value='gemini'>Gemini</option>
+            <option value='cancer'>Cancer</option>
+            <option value='leo'>Leo</option>
+            <option value='virgo'>Virgo</option>
+            <option value='libra'>Libra</option>
+            <option value='scorpio'>Scorpio</option>
+            <option value='sagittarius'>Sagittarius</option>
+            <option value='capricorn'>Capricorn</option>
+            <option value='aquarius'>Aquarius</option>
+            <option value='pisces'>Pisces</option>
           </select>
-          {/* value={signInForm}
-            onChange={(e) => setSignInForm(e.target.value)} */}
           <button>Submit</button>
         </form>
         

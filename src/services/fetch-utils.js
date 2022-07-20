@@ -40,8 +40,8 @@ export async function getProfile() {
   }
 }
 
-export async function getSign(sign) {
-  const data = await fetch(`/netlify/functions/astro-endpoint?sign=${sign}`);
-  const results = await data.json();
-  return results;
-}
+// export async function getSign(sign) {
+//   const data = await fetch(`/netlify/functions/astro-endpoint?sign=${sign}`);
+//   const results = await data.json();
+//   return results;
+// }
