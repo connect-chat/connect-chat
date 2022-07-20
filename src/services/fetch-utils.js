@@ -21,10 +21,10 @@ export function getUser() {
 
   return response;
 }
-export async function createUserName(user_name) {
+export async function createProfile(user_name, user_sign) {
   const { data } = await client
     .from('chat_profiles')
-    .insert({ user_name: user_name })
+    .insert({ user_name: user_name, user_sign: user_sign })
     .single();
   return data;
 }

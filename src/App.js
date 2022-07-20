@@ -7,12 +7,13 @@ import ProfilePage from './ProfilePage';
 import './App.css';
 
 export default function App() {
-  const { user, setUser, setUserName } = useDataContext();
+  const { user, setUser, setUserName, setSign } = useDataContext();
 
   async function handleLogout() {
     await logout();
     setUser(null);
     setUserName(null);
+    setSign(null);
   }
 
   return (

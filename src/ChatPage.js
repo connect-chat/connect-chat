@@ -2,18 +2,20 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { createMessage, getMessages, client } from './services/client';
 import { useDataContext } from './DataProvider';
-import { createUserName } from './services/fetch-utils';
+import { createProfile } from './services/fetch-utils';
 
 export default function ChatPage() {
   const [messages, setMessages] = useState([]);
-  const { userName, setUserName } = useDataContext();
+  const { userName, setUserName, sign, setSign } = useDataContext();
   const [userNameInForm, setUserNameInForm] = useState(userName || '');
   const [messageInForm, setMessageInForm] = useState('');
+  const [signInForm, setSignInForm] = useState('');
 
   async function handleNameSubmit(e) {
     e.preventDefault();
     setUserName(userNameInForm);
-    await createUserName(userNameInForm);
+    setSign(signInForm);
+    await createProfile(userNameInForm, signInForm);
     load();
   }
 
@@ -48,18 +50,34 @@ export default function ChatPage() {
 
   return (
     <div className="chat">
-      {!userName ? (
+      {!userName && !sign ? (
         <form className="user-greeting" onSubmit={handleNameSubmit}>
           <input
-            placeholder="username"
+            required
+            placeholder="Username"
             value={userNameInForm}
             onChange={(e) => setUserNameInForm(e.target.value)}
           />
+          <select onChange={(e) => setSignInForm(e.target.value)} required value={signInForm} placeholder="Select Zodiac Sign">
+            <option value='aries'>Aries</option>
+            <option value='taurus'>Taurus</option>
+            <option value='gemini'>Gemini</option>
+            <option value='cancer'>Cancer</option>
+            <option value='leo'>Leo</option>
+            <option value='virgo'>Virgo</option>
+            <option value='libra'>Libra</option>
+            <option value='scorpio'>Scorpio</option>
+            <option value='sagittarius'>Sagittarius</option>
+            <option value='capricorn'>Capricorn</option>
+            <option value='aquarius'>Aquarius</option>
+            <option value='pisces'>Pisces</option>
+          </select>
           <button>Submit</button>
         </form>
+        
       ) : (
         <header className="header">
-          <h3>Hello {userName}</h3>
+          <h3>Hello {userName}, everyone loves a {sign}</h3>
           <form onSubmit={handleSubmitMessage} className="message-input">
             <input value={messageInForm} onChange={(e) => setMessageInForm(e.target.value)} />
             <button>Send Message</button>

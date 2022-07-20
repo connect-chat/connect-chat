@@ -6,19 +6,25 @@ const DataContext = createContext();
 
 export default function DataProvider({ children }) {
   const [user, setUser] = useState(getUser());
+  const [sign, setSign] = useState('');
   const [userName, setUserName] = useState('');
   const stateAndSetters = {
     user,
     setUser,
     userName,
     setUserName,
+    sign,
+    setSign
   };
 
   useEffect(() => {
     const loadData = async () => {
       try {
         const data = await getProfile();
-        setUserName(data.user_name);
+        if (data) {
+          setUserName(data.user_name);
+          setSign(data.user_sign);
+        }
       } catch (e) {
         console.error(e); // eslint-disable-line
       }
