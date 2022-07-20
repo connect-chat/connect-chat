@@ -18,7 +18,7 @@ export default function DataProvider({ children }) {
     const loadData = async () => {
       try {
         const data = await getProfile();
-        setUserName(data.user_name);
+        if (data) setUserName(data.user_name);
       } catch (e) {
         console.error(e); // eslint-disable-line
       }
