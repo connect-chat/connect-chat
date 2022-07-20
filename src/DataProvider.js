@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
-import { useState, 
-  useContext, 
-  createContext } from 'react';
+import { useState, useContext, createContext } from 'react';
 import { getProfile, getUser } from './services/fetch-utils';
 
 const DataContext = createContext();
@@ -13,28 +11,22 @@ export default function DataProvider({ children }) {
     user,
     setUser,
     userName,
-    setUserName
+    setUserName,
   };
 
   useEffect(() => {
     const loadData = async () => {
       try {
-        console.log('loading profile');
         const data = await getProfile();
-        console.log(data);
         setUserName(data.user_name);
       } catch (e) {
-        console.error(e);
+        console.error(e); // eslint-disable-line
       }
     };
     loadData();
   }, []);
 
-  return (
-    <DataContext.Provider value={stateAndSetters}>
-      {children}
-    </DataContext.Provider>
-  );
+  return <DataContext.Provider value={stateAndSetters}>{children}</DataContext.Provider>;
 }
 
 export function useDataContext() {
