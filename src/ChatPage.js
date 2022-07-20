@@ -7,7 +7,7 @@ import { createUserName } from './services/fetch-utils';
 export default function ChatPage() {
   const [messages, setMessages] = useState([]);
   const { userName, setUserName } = useDataContext();
-  const [userNameInForm, setUserNameInForm] = useState(userName);
+  const [userNameInForm, setUserNameInForm] = useState(userName || '');
   const [messageInForm, setMessageInForm] = useState('');
 
   async function handleNameSubmit(e) {
@@ -48,26 +48,29 @@ export default function ChatPage() {
 
   return (
     <div className="chat">
-      {
-        !userName
-          ? <form className="user-greeting" onSubmit={handleNameSubmit}>
-            <input placeholder="username" value={userNameInForm} onChange={(e) => setUserNameInForm(e.target.value)} />
-            <button>Submit</button>
+      {!userName ? (
+        <form className="user-greeting" onSubmit={handleNameSubmit}>
+          <input
+            placeholder="username"
+            value={userNameInForm}
+            onChange={(e) => setUserNameInForm(e.target.value)}
+          />
+          <button>Submit</button>
+        </form>
+      ) : (
+        <header className="header">
+          <h3>Hello {userName}</h3>
+          <form onSubmit={handleSubmitMessage} className="message-input">
+            <input value={messageInForm} onChange={(e) => setMessageInForm(e.target.value)} />
+            <button>Send Message</button>
           </form>
-
-          : <header className="header">
-            <h3>Hello {userName}</h3>
-            <form onSubmit={handleSubmitMessage} className="message-input">
-              <input value={messageInForm} onChange={(e) => setMessageInForm(e.target.value)} />
-              <button>Send Message</button>
-            </form>
-            {messages.map((message, i) => (
-              <p key={message.from + i + message.message}>
-                {message.from}: {message.message}
-              </p>
-            ))}
-          </header>
-      }
+          {messages.map((message, i) => (
+            <p key={message.from + i + message.message}>
+              {message.from}: {message.message}
+            </p>
+          ))}
+        </header>
+      )}
     </div>
   );
 }

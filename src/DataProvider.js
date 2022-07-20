@@ -18,14 +18,14 @@ export default function DataProvider({ children }) {
     const loadData = async () => {
       try {
         const data = await getProfile();
-        console.log(data);
         setUserName(data.user_name);
       } catch (e) {
         console.error(e); // eslint-disable-line
       }
     };
-    loadData(); 
-  }, [user]); //everytime the user changes, we will fetch the profile again
+    loadData();
+  }, [user]);
+  //every time the user changes, we will fetch the profile again
 
   return <DataContext.Provider value={stateAndSetters}>{children}</DataContext.Provider>;
 }
