@@ -47,7 +47,7 @@ export default function ChatPage() {
     setMessageInForm('');
     load();
   }
-
+  // console.log(sign);
   return (
     <div className="chat">
       {!userName && !sign ? (
@@ -80,21 +80,25 @@ export default function ChatPage() {
           <button>Submit</button>
         </form>
       ) : (
-        <header className="chat-div">
-          {/* can the line above be a div vs header? */}
-          <h3 className="user-greeting">
+        <>
+          <div className='user-greeting'>
+            <h3>
             Hello {userName}, everyone loves a {sign}
-          </h3>
-          <form onSubmit={handleSubmitMessage} className="message-input">
-            <input value={messageInForm} onChange={(e) => setMessageInForm(e.target.value)} />
-            <button>Send</button>
-          </form>
-          {messages.map((message, i) => (
-            <p className="sent-messages" key={message.from + i + message.message}>
-              {message.from}: {message.message}
-            </p>
-          ))}
-        </header>
+            </h3>
+          </div>
+          <header className="chat-div">
+            {/* can the line above be a div vs header? */}
+            <form onSubmit={handleSubmitMessage} className="message-input">
+              <input value={messageInForm} onChange={(e) => setMessageInForm(e.target.value)} />
+              <button>Send</button>
+            </form>
+            {messages.map((message, i) => (
+              <p className="sent-messages" key={message.from + i + message.message}>
+                {message.from}: {message.message}
+              </p>
+            ))}
+          </header>
+        </>
       )}
     </div>
   );

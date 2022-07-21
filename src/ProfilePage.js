@@ -10,6 +10,7 @@ export default function ProfilePage() {
     async function userDetails() {
       const horoscope = await getZodiac();
       setHoroscope(horoscope);
+      console.log(horoscope);
     }
     userDetails();
   }, []);
@@ -18,7 +19,6 @@ export default function ProfilePage() {
       <div className="profile-greeting">
         <h2>More About your sign</h2>
         <p>Your Sign: {sign}</p>
-        <p>Todays Date: {horoscope.current_date}</p>
         <p>Horoscope Compatibility: {horoscope.compatibility}</p>
         <p>Todays Lucky Number: {horoscope.lucky_number}</p>
         <p>Todays Lucky Time: {horoscope.lucky_time}</p>

@@ -39,7 +39,8 @@ html,
   margin: 2em;
   padding: 1em;
   flex-direction: column;
-
+  overflow: scroll;
+  overflow-x: hidden;
   border-radius: 0.25em;
 }
 
@@ -104,6 +105,7 @@ input {
   border: none;
   color: var(--color4);
   font-family: 'Nixie One', cursive;
+  display: flex;
 }
 
 label {
@@ -116,3 +118,22 @@ label {
   overflow-y: scroll;
   scrollbar-color: rebeccapurple green;
 } */
+
+.auth {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  align-items: center;
+}
+
+.sign-up {
+  display: flex;
+  flex-direction: column;
+  margin: 1em 1em 4em 1em;
+}
+
+.sign-in {
+  display: flex;
+  flex-direction: column;
+  margin: 1em 1em 1em 1em;
+}
