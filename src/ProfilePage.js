@@ -22,7 +22,7 @@ export default function ProfilePage() {
       <p>Todays Lucky Number: { horoscope.lucky_number }</p>
       <p>Todays Lucky Time: { horoscope.lucky_time }</p>
       <p>Color: { horoscope.color }</p>
-      <p>{ sign }s are born { horoscope.date_range }</p>
+      <p>{ sign }&#39;s are born { horoscope.date_range }</p>
       <p>You could be feeling: { horoscope.mood }</p>
       <p>{ horoscope.description }</p>
     </div>
