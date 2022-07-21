@@ -10,7 +10,9 @@ const headers = {
 exports.handler = async (event, context) => {
   try {
     const response = await fetch(
-      `https://aztro.sameerkumar.website/?sign=${event.queryStringParameters.sign}&day=${event.queryStringParameters.day}api_url=${process.env.API_URL}`
+      `https://aztro.sameerkumar.website/?sign=${event.queryStringParameters.sign}&day=${event.queryStringParameters.day}`,{
+        method: 'POST'
+      }
     );
     const data = await response.json();
     const json = JSON.stringify(data);
