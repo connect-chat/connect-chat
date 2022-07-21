@@ -22,12 +22,6 @@ export default function App() {
       <div>
         <nav>
           <ul>
-            {/* {
-              !user &&
-              <li>
-                <Link to="/">Auth</Link>
-              </li>
-            } */}
             {
               user &&
               <li>

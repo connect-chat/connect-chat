@@ -1,0 +1,18 @@
+body,
+.main {
+    /* background-color: red; */
+    display: grid;
+    grid-template-columns: 25fr 50fr 25fr;
+    grid-template-rows: 25fc 10fr 20fr 7fr 5fr 8fr 25fr;
+    min-width: 500px;
+    max-width: 1000px;
+}
+
+.profile-div {
+    display: grid;
+    grid-column: 2 / span 1;
+    grid-row: 2;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
