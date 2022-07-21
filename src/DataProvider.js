@@ -16,7 +16,6 @@ export default function DataProvider({ children }) {
     sign,
     setSign
   };
-
   useEffect(() => {
     const loadData = async () => {
       try {

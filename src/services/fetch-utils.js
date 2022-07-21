@@ -39,3 +39,14 @@ export async function getProfile() {
     return profile;
   }
 }
+
+export async function getZodiac() {
+  const URL = '/.netlify/functions/astro-endpoint?sign=aries&day=today';
+  return fetch(URL)
+    .then(response => response.json())
+    .then(json => {
+      return (
+        json
+      );
+    });
+}
