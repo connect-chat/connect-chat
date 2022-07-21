@@ -23,7 +23,7 @@ exports.handler = async (event) => {
       body: json,
     };
   } catch (error) {
-    console.log(error);
+    console.log(error); //eslint-disable-line
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Failed fetching data' }),

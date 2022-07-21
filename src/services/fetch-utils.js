@@ -45,7 +45,6 @@ export async function getZodiac() {
   return fetch(URL)
     .then(response => response.json())
     .then(json => {
-      const date = json.current_date;
       return (
         json
       );
