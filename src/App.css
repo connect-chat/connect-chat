@@ -1,21 +1,118 @@
-li {
-    list-style: none;
+body,
+html,
+#root {
+  background-image: linear-gradient(150deg, var(--color1), var(--color6), var(--color1));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  --color1: rgb(32, 0, 39);
+  --color2: rgb(200, 34, 255);
+  --color3: rgb(171, 138, 255);
+  --color4: rgb(0, 255, 242);
+  --color5: rgb(122, 255, 34);
+  --color6: rgb(8, 0, 10);
 }
 
-.header {
-    background-color: rebeccapurple;
-    width: 350px;
-    height: 350px;
-    display: flex;
-    text-align: left;
-    margin: 4em;
-    padding: 1em;
-    flex-direction: column;
-    color: aqua;
-    overflow: scroll;
+.profile-div {
+  background: transparent;
+  width: 25em;
+  height: 25em;
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  border-radius: 0.25em;
 }
-/* .header p {
-    display: flex;
-    flex-direction: column-reverse;
-    background-color: aquamarine;
+
+.profile-div p {
+  font-family: 'Cutive Mono', monospace;
+  color: rgb(255, 0, 221);
+}
+
+.chat-div {
+  background: transparent;
+  width: 25em;
+  height: 25em;
+  display: flex;
+  text-align: left;
+  margin: 2em;
+  padding: 1em;
+  flex-direction: column;
+
+  border-radius: 0.25em;
+}
+
+.user-greeting {
+  color: var(--color3);
+  font-family: 'Bungee Shade', cursive;
+}
+
+* {
+  font-family: 'Bungee Shade', cursive;
+  color: var(--color2);
+}
+
+.sent-messages {
+  font-family: 'Cutive Mono', monospace;
+  color: rgb(255, 0, 221);
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+li {
+  list-style: none;
+  color: var(--color2);
+}
+
+a {
+  display: flex;
+  align-content: space-around;
+  color: var(--color4);
+  font-size: 1.5em;
+}
+
+h2 {
+  color: var(--color5);
+}
+
+button {
+  background: transparent;
+  color: var(--color4);
+  height: 2em;
+  width: 7em;
+  border: solid var(--color3);
+  border-radius: 0.25em;
+  margin-top: 0.5em;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 0.4;
+}
+
+form {
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  height: 5em;
+  display: flex;
+}
+
+input {
+  background-color: var(--color1);
+  border: none;
+  color: var(--color4);
+  font-family: 'Nixie One', cursive;
+}
+
+label {
+  color: var(--color5);
+}
+
+/* .scroller {
+  width: 300px;
+  height: 100px;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
 } */
