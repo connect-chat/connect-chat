@@ -8,12 +8,12 @@ export default function ProfilePage() {
 
   useEffect(() => {
     async function userDetails() {
-      const horoscope = await getZodiac();
+      const horoscope = await getZodiac(sign);
       setHoroscope(horoscope);
       console.log(horoscope);
     }
     userDetails();
-  }, []);
+  }, [sign]);
   return (
     <div className="profile-div">
       <div className="profile-greeting">

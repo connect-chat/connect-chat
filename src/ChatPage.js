@@ -34,7 +34,7 @@ export default function ChatPage() {
       .from('chat_messages')
       .on('*', async ({ new: { from, message } }) => {
         if (from && message) {
-          setMessages((previousMessages) => [...previousMessages, { from, message }]);
+          setMessages((previousMessages) => [...previousMessages]);
         }
       })
       .subscribe();
@@ -88,16 +88,16 @@ export default function ChatPage() {
           </div>
           <header className="chat-div">
             {/* can the line above be a div vs header? */}
-            <form onSubmit={handleSubmitMessage} className="message-input">
-              <input value={messageInForm} onChange={(e) => setMessageInForm(e.target.value)} />
-              <button>Send</button>
-            </form>
-            {messages.map((message, i) => (
+            {messages.reverse().map((message, i) => (
               <p className="sent-messages" key={message.from + i + message.message}>
                 {message.from}: {message.message}
               </p>
             ))}
           </header>
+          <form onSubmit={handleSubmitMessage} className="message-input">
+            <input value={messageInForm} onChange={(e) => setMessageInForm(e.target.value)} />
+            <button>Send</button>
+          </form>
         </>
       )}
     </div>

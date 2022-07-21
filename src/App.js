@@ -5,6 +5,7 @@ import AuthPage from './AuthPage';
 import ChatPage from './ChatPage';
 import ProfilePage from './ProfilePage';
 import './App.css';
+import AboutPage from './AboutPage';
 
 export default function App() {
   const { user, setUser, setUserName, setSign } = useDataContext();
@@ -31,6 +32,9 @@ export default function App() {
               <Link to="/profile">Profile</Link>
             </li>
             <li>
+              <Link to='/about'>about</Link>
+            </li>
+            <li>
               <button onClick={handleLogout}>logout</button>
             </li>
           </ul>
@@ -45,6 +49,9 @@ export default function App() {
           </Route>
           <Route exact path="/profile">
             {!user ? <Redirect to="/" /> : <ProfilePage />}
+          </Route>
+          <Route exact path='/about'>
+            {!user ? <Redirect to='/' /> : <AboutPage />}
           </Route>
         </Switch>
       </div>
