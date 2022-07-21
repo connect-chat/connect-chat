@@ -7,10 +7,10 @@ const headers = {
   'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
 };
 
-exports.handler = async (event, context) => {
+exports.handler = async (event) => {
   try {
     const response = await fetch(
-      `https://aztro.sameerkumar.website/?sign=${event.queryStringParameters.sign}&day=${event.queryStringParameters.day}`,{
+      `https://aztro.sameerkumar.website/?sign=${event.queryStringParameters.sign}&day=${event.queryStringParameters.day}`, {
         method: 'POST'
       }
     );
