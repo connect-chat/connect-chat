@@ -22,9 +22,11 @@ html,
 
 .user-greeting {
   color: chartreuse;
+  font-family: 'Bungee Shade', cursive;
 }
 
 .sent-messages {
+  font-family: 'Nixie One', cursive;
   color: rgb(255, 0, 221);
   display: flex;
   flex-direction: column-reverse;

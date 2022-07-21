@@ -81,6 +81,7 @@ export default function ChatPage() {
         </form>
       ) : (
         <header className="chat-div">
+          {/* can the line above be a div vs header? */}
           <h3 className="user-greeting">
             Hello {userName}, everyone loves a {sign}
           </h3>
