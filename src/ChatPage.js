@@ -40,6 +40,10 @@ export default function ChatPage() {
       .subscribe();
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [messages]);
+
   async function handleSubmitMessage(e) {
     e.preventDefault();
 

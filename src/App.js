@@ -4,8 +4,8 @@ import { useDataContext } from './DataProvider';
 import AuthPage from './AuthPage';
 import ChatPage from './ChatPage';
 import ProfilePage from './ProfilePage';
-import './App.css';
 import AboutPage from './AboutPage';
+import './App.css';
 
 export default function App() {
   const { user, setUser, setUserName, setSign } = useDataContext();
@@ -22,21 +22,36 @@ export default function App() {
       <div>
         <nav>
           <ul>
-            <li>
-              <Link to="/">Auth</Link>
-            </li>
-            <li>
-              <Link to="/chat">Chat</Link>
-            </li>
-            <li>
-              <Link to="/profile">Profile</Link>
-            </li>
-            <li>
-              <Link to='/about'>about</Link>
-            </li>
-            <li>
-              <button onClick={handleLogout}>logout</button>
-            </li>
+            {/* {
+              !user &&
+              <li>
+                <Link to="/">Auth</Link>
+              </li>
+            } */}
+            {
+              user &&
+              <li>
+                <Link to="/chat">Chat</Link>
+              </li>
+            }
+            {
+              user &&
+              <li>
+                <Link to="/profile">Profile</Link>
+              </li>
+            }
+            {
+              user &&
+              <li>
+                <Link to='/about'>about</Link>
+              </li>
+            }
+            {
+              user &&
+              <li>
+                <button onClick={handleLogout}>logout</button>
+              </li>
+            }
           </ul>
         </nav>
 
