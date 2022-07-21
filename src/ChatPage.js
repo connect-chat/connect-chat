@@ -87,7 +87,7 @@ export default function ChatPage() {
           </h3>
           <form onSubmit={handleSubmitMessage} className="message-input">
             <input value={messageInForm} onChange={(e) => setMessageInForm(e.target.value)} />
-            <button>Send Message</button>
+            <button>Send</button>
           </form>
           {messages.map((message, i) => (
             <p className="sent-messages" key={message.from + i + message.message}>
