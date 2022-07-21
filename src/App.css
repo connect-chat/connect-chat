@@ -11,7 +11,7 @@ html,
   --color2: rgb(200, 34, 255);
   --color3: rgb(171, 138, 255);
   --color4: rgb(0, 255, 242);
-  --color5: rgb(34, 106, 255);
+  --color5: rgb(122, 255, 34);
   --color6: rgb(8, 0, 10);
 }
 
@@ -50,6 +50,7 @@ html,
 
 * {
   font-family: 'Bungee Shade', cursive;
+  color: var(--color2);
 }
 
 .sent-messages {
@@ -76,10 +77,13 @@ h2 {
 }
 
 button {
-  color: rgb(0, 12, 93);
+  background: transparent;
+  color: var(--color4);
   height: 2em;
   width: 7em;
+  border: solid var(--color3);
   border-radius: 0.25em;
+  margin-top: 0.5em;
 }
 
 button:hover {
@@ -100,6 +104,10 @@ input {
   border: none;
   color: var(--color4);
   font-family: 'Nixie One', cursive;
+}
+
+label {
+  color: var(--color5);
 }
 
 /* .scroller {
