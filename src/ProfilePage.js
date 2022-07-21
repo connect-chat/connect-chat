@@ -3,13 +3,12 @@ import { useDataContext } from './DataProvider';
 import { getZodiac } from './services/fetch-utils';
 
 export default function ProfilePage() {
-  const { sign, setSign } = useDataContext();
+  const { sign } = useDataContext();
   const [horoscope, setHoroscope] = useState({});
 
   useEffect(() => {
     async function userDetails() {
       const horoscope = await getZodiac();
-      console.log(horoscope);
       setHoroscope(horoscope);
     }
     userDetails();

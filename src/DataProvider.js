@@ -23,7 +23,6 @@ export default function DataProvider({ children }) {
         if (data) {
           setUserName(data.user_name);
           setSign(data.user_sign);
-          console.log(data.user_sign);
         }
       } catch (e) {
         console.error(e); // eslint-disable-line
