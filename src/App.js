@@ -5,6 +5,7 @@ import AuthPage from './AuthPage';
 import ChatPage from './ChatPage';
 import ProfilePage from './ProfilePage';
 import AboutPage from './AboutPage';
+// import { AppBar } from '@mui/material';
 import './App.css';
 
 export default function App() {

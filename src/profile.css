@@ -1,11 +1,11 @@
-body,
-.main {
-    /* background-color: red; */
+.main-div {
+    outline: solid 10px red;
     display: grid;
     grid-template-columns: 25fr 50fr 25fr;
-    grid-template-rows: 25fc 10fr 20fr 7fr 5fr 8fr 25fr;
-    min-width: 500px;
-    max-width: 1000px;
+    grid-template-rows: 25fr 10fr 20fr 7fr 5fr 8fr 25fr;
+    /* grid-template-rows: 250 100 200 70 50 80 250; */
+    /* min-width: 500px;
+    max-width: 1000px; */
 }
 
 .profile-div {

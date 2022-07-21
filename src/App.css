@@ -6,7 +6,6 @@ html,
   background-repeat: no-repeat;
   background-size: stretch;
   display: flex;
-  justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
@@ -60,10 +59,7 @@ html,
 .sent-messages {
   font-family: 'Cutive Mono', monospace;
   color: rgb(255, 0, 221);
-  display: flex;
-  flex-direction: row-reverse;
-  position: relative;
-  clear: both;
+  margin: 5px;
 }
 
 li {
@@ -141,4 +137,8 @@ label {
   display: flex;
   flex-direction: column;
   margin: 1em 1em 1em 1em;
+}
+
+.greeting {
+  margin: 15px;
 }

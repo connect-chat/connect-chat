@@ -22,12 +22,12 @@ export default function ChatPage() {
   async function load() {
     const data = await getMessages();
 
-    setMessages(data);
+    setMessages(data.reverse());
   }
 
   useEffect(() => {
     load();
-  }, []); // eslint-disable-line
+  }, [handleSubmitMessage]); // eslint-disable-line
 
   useEffect(() => {
     client
@@ -40,10 +40,7 @@ export default function ChatPage() {
       .subscribe();
   }, []);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [messages]);
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   async function handleSubmitMessage(e) {
     e.preventDefault();
 
@@ -86,13 +83,13 @@ export default function ChatPage() {
       ) : (
         <>
           <div className='user-greeting'>
-            <h3>
-            Hello {userName}, everyone loves a {sign}
+            <h3 className='greeting'>
+            Hello @{userName}, everyone loves a {sign}
             </h3>
           </div>
           <header className="chat-div">
             {/* can the line above be a div vs header? */}
-            {messages.reverse().map((message, i) => (
+            {messages.map((message, i) => (
               <p className="sent-messages" key={message.from + i + message.message}>
                 {message.from}: {message.message}
               </p>
