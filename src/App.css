@@ -47,6 +47,8 @@ html,
 }
 
 .user-greeting {
+  display: flex;
+  flex-direction: column;
   color: var(--color3);
   font-family: 'Bungee', cursive;
 }
@@ -115,13 +117,6 @@ label {
   color: var(--color3);
 }
 
-/* .scroller {
-  width: 300px;
-  height: 100px;
-  overflow-y: scroll;
-  scrollbar-color: rebeccapurple green;
-} */
-
 .auth {
   display: flex;
   flex-direction: column;
@@ -147,7 +142,7 @@ label {
   flex-wrap: wrap;
   flex-direction: column;
   margin-left: 1.7em;
-  margin-top: .5em;
+  margin-top: 0.5em;
   font-size: 2em;
   font-family: 'Bungee', cursive;
   color: var(--color4);
@@ -169,35 +164,35 @@ label {
   position: relative;
   border-radius: 8px;
   background-color: white; */
-  box-shadow: 0 0 0 1px rgba(0,0,0,.01);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.01);
 }
 
-  .magic-button::after {
-    position: absolute;
-    top: 15px;
-    content: "chat";
-    left: 0;
-    right: 0;
-    z-index: -1;
-    height: 100%;
-    width: 100%;
-    transform: scale(0.9) translateZ(0);
-    filter: blur(15px);
-    background: linear-gradient(
-      to left,
-      #ff5770,
-      #e4428d,
-      #c42da8,
-      #9e16c3,
-      #6501de,
-      #9e16c3,
-      #c42da8,
-      #e4428d,
-      #ff5770
-    );
-    background-size: 200% 200%;
-    animation: animateGlow 1.25s linear infinite;
-  }
+.magic-button::after {
+  position: absolute;
+  top: 15px;
+  content: 'chat';
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  transform: scale(0.9) translateZ(0);
+  filter: blur(15px);
+  background: linear-gradient(
+    to left,
+    #ff5770,
+    #e4428d,
+    #c42da8,
+    #9e16c3,
+    #6501de,
+    #9e16c3,
+    #c42da8,
+    #e4428d,
+    #ff5770
+  );
+  background-size: 200% 200%;
+  animation: animateGlow 1.25s linear infinite;
+}
 
 @keyframes animateGlow {
   0% {
@@ -210,4 +205,31 @@ label {
 
 .sidebar {
   background-color: hotpink;
+}
+
+.user-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30em;
+  display: flex;
+  align-items: center;
+}
+
+.user-input input {
+  width: 20em;
+  font-family: 'Bungee', cursive;
+  color: var(--color4);
+  margin: 2em;
+  padding: 1.5em;
+}
+
+.user-input select {
+  width: 20em;
+  font-family: 'Cutive Mono', monospace;
+  color: var(--color1);
+  padding: 0.75em;
+}
+.user-input button {
+  margin-top: 2em;
 }

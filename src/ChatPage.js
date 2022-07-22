@@ -51,7 +51,7 @@ export default function ChatPage() {
   }
   // console.log(sign);
   return (
-    <div className="chat">
+    <div className="user-input">
       {!userName && !sign ? (
         <form className="user-greeting" onSubmit={handleNameSubmit}>
           <input
@@ -79,7 +79,7 @@ export default function ChatPage() {
             <option value="aquarius">Aquarius</option>
             <option value="pisces">Pisces</option>
           </select>
-          <button>Submit</button>
+          <button className='user-button'>Submit</button>
         </form>
       ) : (
         <>
