@@ -22,6 +22,7 @@ body
   align-items: center;
   flex-wrap: wrap;
   padding: 40px 0;
+
 }
 
 .container .box
@@ -229,4 +230,24 @@ body
   border-radius: 50%;
   height: 100px;
   width: 100px;
+}
+
+.content {
+  background-color: var(--color1);
+}
+
+h3 {
+  color: var(--color1);
+  font-size: 2.5em;
+}
+
+.meet-us {
+  display: flex;
+  text-align: center;
+  height: auto;
+}
+
+.hunt {
+  display: flex;
+  flex-direction: row;
 }

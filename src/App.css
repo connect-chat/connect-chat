@@ -207,3 +207,7 @@ label {
     background-position: 200% 50%;
   }
 }
+
+.sidebar {
+  background-color: hotpink;
+}
