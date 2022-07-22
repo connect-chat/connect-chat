@@ -97,7 +97,6 @@ button:hover {
 }
 
 form {
-  /* background-color: red; */
   display: flex;
   align-items: center;
   height: 5em;
@@ -252,7 +251,7 @@ label {
 }
 
 .MuiDrawer-paperAnchorLeft button {
-  height: 2em
+  height: 2em;
   color: var(--color1);
   border: solid 0.25em var(--color4);
 }

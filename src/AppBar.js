@@ -17,8 +17,10 @@ export default function ButtonAppBar() {
 
   return ['left'].map((anchor) => (
     <React.Fragment key={anchor}>
-      <Button className="menu-button" onClick={() => setDrawer(true)}>{anchor}</Button>
-      <Drawer className="drawer" anchor={anchor} open={drawer} onClose={() => setDrawer(false)}>
+      <Button className="menu-button" onClick={() => setDrawer(true)}>
+        {anchor}
+      </Button>
+      <Drawer anchor={anchor} open={drawer} onClose={() => setDrawer(false)}>
         <ListItem>
           <Link to="/chat">Chat</Link>
         </ListItem>

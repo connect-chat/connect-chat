@@ -15,9 +15,6 @@
 .div3 {
   grid-area: 1 / 1 / 3 / 2;
 }
-/* grid-template-rows: 250 100 200 70 50 80 250; */
-/* min-width: 500px;
-    max-width: 1000px; */
 
 .profile-div {
   display: grid;
