@@ -69,7 +69,7 @@ body {
 
 .container .box:nth-child(1):before,
 .container .box:nth-child(1):after {
-  background: linear-gradient(315deg, #ffbc00, #ff0058);
+  background: linear-gradient(315deg, #00d5ff, #ff0058);
 }
 
 .container .box:nth-child(2):before,
@@ -181,10 +181,14 @@ body {
   font-size: 1.1em;
   margin-bottom: 10px;
   line-height: 1.4em;
+  text-align: justify;
+  color: var(--color1);
 }
 
 .container .box .content a {
-  display: inline-block;
+  display: flex;
+  flex-direction: row-reverse;
+  align-content: center;
   font-size: 1.1em;
   color: #111;
   background: #fff;
@@ -197,7 +201,7 @@ body {
 }
 
 .container .box .content a:hover {
-  background: #ffcf4d;
+  background: var(--color2);
   border: 1px solid rgba(255, 0, 88, 0.4);
   box-shadow: 0 1px 15px rgba(1, 1, 1, 0.2);
 }
@@ -223,7 +227,7 @@ h3 {
   height: auto;
 }
 
-.meet-us{
+.meet-us {
   font-size: 2em;
 }
 
