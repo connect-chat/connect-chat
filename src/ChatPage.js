@@ -22,24 +22,25 @@ export default function ChatPage() {
   async function load() {
     const data = await getMessages();
 
-    setMessages(data);
+    setMessages(data.reverse());
   }
 
   useEffect(() => {
     load();
-  }, []); // eslint-disable-line
+  }, [handleSubmitMessage]); // eslint-disable-line
 
   useEffect(() => {
     client
       .from('chat_messages')
       .on('*', async ({ new: { from, message } }) => {
         if (from && message) {
-          setMessages((previousMessages) => [...previousMessages, { from, message }]);
+          setMessages((previousMessages) => [...previousMessages]);
         }
       })
       .subscribe();
   }, []);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   async function handleSubmitMessage(e) {
     e.preventDefault();
 
@@ -47,7 +48,7 @@ export default function ChatPage() {
     setMessageInForm('');
     load();
   }
-
+  // console.log(sign);
   return (
     <div className="chat">
       {!userName && !sign ? (
@@ -80,21 +81,25 @@ export default function ChatPage() {
           <button>Submit</button>
         </form>
       ) : (
-        <header className="chat-div">
-          {/* can the line above be a div vs header? */}
-          <h3 className="user-greeting">
-            Hello {userName}, everyone loves a {sign}
-          </h3>
+        <>
+          <div className='user-greeting'>
+            <h3 className='greeting'>
+            Hello @{userName}, everyone loves a {sign}
+            </h3>
+          </div>
+          <header className="chat-div">
+            {/* can the line above be a div vs header? */}
+            {messages.map((message, i) => (
+              <p className="sent-messages" key={message.from + i + message.message}>
+                {message.from}: {message.message}
+              </p>
+            ))}
+          </header>
           <form onSubmit={handleSubmitMessage} className="message-input">
             <input value={messageInForm} onChange={(e) => setMessageInForm(e.target.value)} />
             <button>Send</button>
           </form>
-          {messages.map((message, i) => (
-            <p className="sent-messages" key={message.from + i + message.message}>
-              {message.from}: {message.message}
-            </p>
-          ))}
-        </header>
+        </>
       )}
     </div>
   );

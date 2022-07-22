@@ -40,8 +40,8 @@ export async function getProfile() {
   }
 }
 
-export async function getZodiac() {
-  const URL = '/.netlify/functions/astro-endpoint?sign=aries&day=today';
+export async function getZodiac(sign) {
+  const URL = `/.netlify/functions/astro-endpoint?sign=${sign}&day=today`;
   return fetch(URL)
     .then(response => response.json())
     .then(json => {

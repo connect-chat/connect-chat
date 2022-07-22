@@ -33,9 +33,9 @@ export default function AuthPage() {
   }
 
   return (
-    <div className="home-page">
+    <div className="auth">
       Sign Up
-      <form onSubmit={handleSignUp}>
+      <form onSubmit={handleSignUp} className='sign-up'>
         <label>
           Email
           <input value={signUpEmail} onChange={e => setSignUpEmail(e.target.value)} />
@@ -47,7 +47,7 @@ export default function AuthPage() {
         <button>Sign Up</button>
       </form>
       Sign In
-      <form onSubmit={handleSignIn}>
+      <form onSubmit={handleSignIn} className='sign-in'>
         <label>
           Email
           <input value={signInEmail} onChange={e => setSignInEmail(e.target.value)} />
