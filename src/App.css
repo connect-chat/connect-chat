@@ -123,8 +123,18 @@ label {
   padding: 1em;
   align-items: center;
   color: var(--color5);
+  margin: 0.5em;
+  padding: 0.5em;
 }
 
+.auth button {
+  margin: 2em;
+  font-family: 'Bungee', cursive;
+}
+
+.auth label {
+  font-family: 'Bungee', cursive;
+}
 .sign-up {
   display: flex;
   flex-direction: column;
