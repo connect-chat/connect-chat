@@ -1,32 +1,35 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-// import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import { Link } from 'react-router-dom';
+import { logout } from './services/fetch-utils';
+import { Drawer, Button, ListItem } from '@mui/material';
+import { useDataContext } from './DataProvider';
 
 export default function ButtonAppBar() {
+  const [drawer, setDrawer] = React.useState(false);
+  const { setUser, setUserName, setSign } = useDataContext();
+
+  async function handleLogout() {
+    await logout();
+    setUser(null);
+    setUserName(null);
+    setSign(null);
+  }
+
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            C O N N E C T | C H A T
-          </Typography>
-          {/* <Button color="inherit">Login</Button> */}
-        </Toolbar>
-      </AppBar>
-    </Box>
+    ['left']).map((anchor) => (
+    <React.Fragment key={anchor}>
+      <Button onClick={() => setDrawer(true)}>{anchor}</Button>
+      <Drawer
+        anchor={anchor}
+        open={drawer}
+        onClose={() => setDrawer(false)}
+      >
+        <ListItem><Link to="/chat">Chat</Link></ListItem>
+        <ListItem><Link to="/profile">Profile</Link></ListItem>
+        <ListItem><Link to="/about">About</Link></ListItem>
+        <ListItem><button onClick={handleLogout}>Logout</button></ListItem>
+      </Drawer>
+    </React.Fragment>
+  )
   );
 }

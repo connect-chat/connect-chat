@@ -32,6 +32,9 @@ export default function ProfilePage() {
           <p>You could be feeling: {horoscope.mood}</p>
           <p>{horoscope.description}</p>
         </div>
+        <div>
+          <button className="magic-button">Chat</button>
+        </div>
       </div>
     </div>
   );

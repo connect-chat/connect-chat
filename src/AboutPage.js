@@ -14,7 +14,7 @@ export default function AboutPage() {
             <h3>Colter</h3>
             <p>Birthday: 5/5/93</p>
             <p>Birth Time: 8:32pm, Seattle, WA</p>
-            <p>Taurus Sun, Moon, Rising</p>
+            <p>Taurus Sun, Scorpio Moon, Scorpio Rising</p>
             <a href="https://www.linkedin.com/in/colter-garrison/">LinkedIn</a>
             <a href="https://github.com/Colter-Garrison">GitHub</a>
           </div>
