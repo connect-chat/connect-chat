@@ -15,21 +15,25 @@ export default function ButtonAppBar() {
     setSign(null);
   }
 
-  return (
-    ['left']).map((anchor) => (
+  return ['left'].map((anchor) => (
     <React.Fragment key={anchor}>
-      <Button onClick={() => setDrawer(true)}>{anchor}</Button>
-      <Drawer
-        anchor={anchor}
-        open={drawer}
-        onClose={() => setDrawer(false)}
-      >
-        <ListItem><Link to="/chat">Chat</Link></ListItem>
-        <ListItem><Link to="/profile">Profile</Link></ListItem>
-        <ListItem><Link to="/about">About</Link></ListItem>
-        <ListItem><button onClick={handleLogout}>Logout</button></ListItem>
+      <Button className="menu-button" onClick={() => setDrawer(true)}>
+        {anchor}
+      </Button>
+      <Drawer anchor={anchor} open={drawer} onClose={() => setDrawer(false)}>
+        <ListItem>
+          <Link to="/chat">Chat</Link>
+        </ListItem>
+        <ListItem>
+          <Link to="/profile">Profile</Link>
+        </ListItem>
+        <ListItem>
+          <Link to="/about">About</Link>
+        </ListItem>
+        <ListItem>
+          <button onClick={handleLogout}>Logout</button>
+        </ListItem>
       </Drawer>
     </React.Fragment>
-  )
-  );
+  ));
 }

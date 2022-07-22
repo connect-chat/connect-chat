@@ -12,12 +12,12 @@ export default function ProfilePage() {
     async function userDetails() {
       const horoscope = await getZodiac(sign);
       setHoroscope(horoscope);
-      // console.log(horoscope);
     }
     userDetails();
   }, [sign]);
+
   return (
-    <div className='main'>
+    <div className="main">
       <div className="profile-div">
         <div className="profile-greeting">
           <h2>More About your sign</h2>
@@ -33,8 +33,15 @@ export default function ProfilePage() {
           <p>{horoscope.description}</p>
         </div>
         <div>
-          <button className="magic-button" onClick={(e) => {e.preventDefault();
-            window.location.href = '/chat';}}>Chat</button>
+          <button
+            className="magic-button"
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = '/chat';
+            }}
+          >
+            Chat
+          </button>
         </div>
       </div>
     </div>

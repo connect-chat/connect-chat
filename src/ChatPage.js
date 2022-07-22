@@ -49,9 +49,9 @@ export default function ChatPage() {
     setMessageInForm('');
     load();
   }
-  // console.log(sign);
+
   return (
-    <div className="chat">
+    <div className="user-input">
       {!userName && !sign ? (
         <form className="user-greeting" onSubmit={handleNameSubmit}>
           <input
@@ -79,17 +79,16 @@ export default function ChatPage() {
             <option value="aquarius">Aquarius</option>
             <option value="pisces">Pisces</option>
           </select>
-          <button>Submit</button>
+          <button className="user-button">Submit</button>
         </form>
       ) : (
         <>
-          <div className='user-greeting'>
-            <h3 className='greeting'>
-            Hello @{userName}, everyone loves a {sign}
+          <div className="user-greeting">
+            <h3 className="greeting">
+              Hello @{userName}, everyone loves a {sign}
             </h3>
           </div>
           <header className="chat-div">
-            {/* can the line above be a div vs header? */}
             {messages.map((message, i) => (
               <p className="sent-messages" key={message.from + i + message.message}>
                 {message.from}: {message.message}
@@ -97,7 +96,11 @@ export default function ChatPage() {
             ))}
           </header>
           <form onSubmit={handleSubmitMessage} className="message-input">
-            <input className="message-input" value={messageInForm} onChange={(e) => setMessageInForm(e.target.value)} />
+            <input
+              className="message-input"
+              value={messageInForm}
+              onChange={(e) => setMessageInForm(e.target.value)}
+            />
             <button>Send</button>
           </form>
         </>
