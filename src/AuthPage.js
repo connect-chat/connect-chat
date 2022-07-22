@@ -4,9 +4,9 @@ import { signInUser, signupUser } from './services/fetch-utils';
 
 export default function AuthPage() {
   const [signUpEmail, setSignUpEmail] = useState('');
-  const [signUpPassword, setSignUpPassword] = useState('');  
+  const [signUpPassword, setSignUpPassword] = useState('');
   const [signInEmail, setSignInEmail] = useState('');
-  const [signInPassword, setSignInPassword] = useState('');  
+  const [signInPassword, setSignInPassword] = useState('');
   const { setUser } = useDataContext();
 
   function clearForms() {
@@ -34,27 +34,36 @@ export default function AuthPage() {
 
   return (
     <div className="auth">
+      <h1>Welcome to Lunar Lounge</h1>
       Sign Up
-      <form onSubmit={handleSignUp} className='sign-up'>
+      <form onSubmit={handleSignUp} className="sign-up">
         <label>
           Email
-          <input value={signUpEmail} onChange={e => setSignUpEmail(e.target.value)} />
+          <input value={signUpEmail} onChange={(e) => setSignUpEmail(e.target.value)} />
         </label>
         <label>
           Password
-          <input value={signUpPassword} type='password' onChange={e => setSignUpPassword(e.target.value)} />
+          <input
+            value={signUpPassword}
+            type="password"
+            onChange={(e) => setSignUpPassword(e.target.value)}
+          />
         </label>
         <button>Sign Up</button>
       </form>
       Sign In
-      <form onSubmit={handleSignIn} className='sign-in'>
+      <form onSubmit={handleSignIn} className="sign-in">
         <label>
           Email
-          <input value={signInEmail} onChange={e => setSignInEmail(e.target.value)} />
+          <input value={signInEmail} onChange={(e) => setSignInEmail(e.target.value)} />
         </label>
         <label>
           Password
-          <input value={signInPassword} type='password' onChange={e => setSignInPassword(e.target.value)} />
+          <input
+            value={signInPassword}
+            type="password"
+            onChange={(e) => setSignInPassword(e.target.value)}
+          />
         </label>
         <button>Sign In</button>
       </form>

@@ -135,6 +135,10 @@ label {
 .auth label {
   font-family: 'Bungee', cursive;
 }
+
+.auth h1 {
+  margin-bottom: 2em;
+}
 .sign-up {
   display: flex;
   flex-direction: column;
