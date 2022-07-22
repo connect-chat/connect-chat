@@ -58,9 +58,9 @@ html,
 
 .sent-messages {
   font-family: 'Cutive Mono', monospace;
-  color: rgb(255, 0, 221);
+  color: var(--color5);
   margin: 5px;
-  background-color: rgba(255, 255, 255, 0.083);
+  background-color: var(--color1);
 }
 
 li {
@@ -143,9 +143,14 @@ label {
 }
 
 .greeting {
-  margin: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-left: 1.7em;
+  margin-top: .5em;
+  font-size: 2em;
   font-family: 'Bungee', cursive;
-  color: rgb(122, 255, 34);
+  color: var(--color4);
 }
 
 .content p {

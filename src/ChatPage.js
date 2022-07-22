@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { createMessage, getMessages, client } from './services/client';
 import { useDataContext } from './DataProvider';
 import { createProfile } from './services/fetch-utils';
+import './Chat.css';
 
 export default function ChatPage() {
   const [messages, setMessages] = useState([]);
@@ -96,7 +97,7 @@ export default function ChatPage() {
             ))}
           </header>
           <form onSubmit={handleSubmitMessage} className="message-input">
-            <input value={messageInForm} onChange={(e) => setMessageInForm(e.target.value)} />
+            <input className="message-input" value={messageInForm} onChange={(e) => setMessageInForm(e.target.value)} />
             <button>Send</button>
           </form>
         </>
