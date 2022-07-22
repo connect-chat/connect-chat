@@ -242,3 +242,17 @@ label {
 .user-input button {
   margin-top: 2em;
 }
+
+.menu-button:after {
+  content: 'bar';
+}
+
+.MuiDrawer-paperAnchorLeft a {
+  color: var(--color1);
+}
+
+.MuiDrawer-paperAnchorLeft button {
+  height: 2em
+  color: var(--color1);
+  border: solid 0.25em var(--color4);
+}
