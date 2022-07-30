@@ -10,6 +10,7 @@ export default function AboutPage() {
       <div className="container">
         <div className="box">
           <span></span>
+          {/* might have been nice to store these repeated points an array of data somewhere { name: 'Colter', sun: 'Taurus',  linkedin: '...', etc}, so you could map over an array and reduce code duplication */}
           <div className="content">
             <h3>Colter</h3>
             <p>

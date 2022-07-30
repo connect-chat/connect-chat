@@ -5,6 +5,20 @@ import { useDataContext } from './DataProvider';
 import { createProfile } from './services/fetch-utils';
 import './Chat.css';
 
+const signs = [
+  'aries',
+  'taurus',
+  'gemini',
+  'cancer',
+  'leo',
+  'virgo',
+  'libra',
+  'sagittarius',
+  'capricorn',
+  'aquarius',
+  'pisces',
+];
+
 export default function ChatPage() {
   const [messages, setMessages] = useState([]);
   const { userName, setUserName, sign, setSign } = useDataContext();
@@ -66,18 +80,12 @@ export default function ChatPage() {
             value={signInForm}
             placeholder="Select Zodiac Sign"
           >
-            <option value="aries">Aries</option>
-            <option value="taurus">Taurus</option>
-            <option value="gemini">Gemini</option>
-            <option value="cancer">Cancer</option>
-            <option value="leo">Leo</option>
-            <option value="virgo">Virgo</option>
-            <option value="libra">Libra</option>
-            <option value="scorpio">Scorpio</option>
-            <option value="sagittarius">Sagittarius</option>
-            <option value="capricorn">Capricorn</option>
-            <option value="aquarius">Aquarius</option>
-            <option value="pisces">Pisces</option>
+            {
+              signs.map((sign, i) => <option key={sign + i} value={sign}>
+                {/* this is the annoting way we capitalize the first letter in javascript */}
+                {`${sign[0].toUpperCase()}${sign.slice(1)}`}
+              </option>)
+            }
           </select>
           <button className="user-button">Submit</button>
         </form>
