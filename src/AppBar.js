@@ -15,10 +15,11 @@ export default function ButtonAppBar() {
     setSign(null);
   }
 
-  return ['left'].map((anchor) => (
-    <React.Fragment key={anchor}>
+  // looks like all this is doing is putting the string 'left' in a few places, so if we do this we can avoid mapping over an array of one item
+  const anchor = 'left';
+  return <>
       <Button className="menu-button" onClick={() => setDrawer(true)}>
-        {anchor}
+        Menu
       </Button>
       <Drawer anchor={anchor} open={drawer} onClose={() => setDrawer(false)}>
         <ListItem>
@@ -34,6 +35,5 @@ export default function ButtonAppBar() {
           <button onClick={handleLogout}>Logout</button>
         </ListItem>
       </Drawer>
-    </React.Fragment>
-  ));
+    </>
 }

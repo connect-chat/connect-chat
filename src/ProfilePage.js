@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useDataContext } from './DataProvider';
 import { getZodiac } from './services/fetch-utils';
+import { useLocation } from 'react-router-dom';
 
 import './profile.css';
 
 export default function ProfilePage() {
+  const { push } = useLocation();
   const { sign } = useDataContext();
   const [horoscope, setHoroscope] = useState({});
 
@@ -22,13 +24,6 @@ export default function ProfilePage() {
         <div className="profile-greeting">
           <h2>More About your sign</h2>
           <p>Your Sign: {sign}</p>
-          {/* <p>Horoscope Compatibility: {horoscope.compatibility}</p>
-          <p>Todays Lucky Number: {horoscope.lucky_number}</p>
-          <p>Todays Lucky Time: {horoscope.lucky_time}</p>
-          <p>Color: {horoscope.color}</p>
-          <p>
-            {sign}&#39;s are born {horoscope.date_range}
-          </p> */}
           <p>You could be feeling: {horoscope.mood}</p>
           <p>{horoscope.description}</p>
         </div>
@@ -37,7 +32,8 @@ export default function ProfilePage() {
             className="magic-button"
             onClick={(e) => {
               e.preventDefault();
-              window.location.href = '/chat';
+              // this keeps us in react-router
+              push('/chat');
             }}
           >
             Chat

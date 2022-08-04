@@ -9,6 +9,7 @@ const headers = {
 
 exports.handler = async (event) => {
   try {
+    // nice job figuring out the `POST` stuff
     const response = await fetch(
       `https://aztro.sameerkumar.website/?sign=${event.queryStringParameters.sign}&day=${event.queryStringParameters.day}`, {
         method: 'POST'
